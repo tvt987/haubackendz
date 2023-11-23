@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/common/layout.html :: dynamic(~{::main})}">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div th:fragment="main">
+  <div class="container-fluid px-1 px-md-5 px-lg-1 px-xl-5 py-5 mx-auto">
+    <h3 class="ltext-105 cl5 txt-center respon1">
+      ĐĂNG NHẬP
+    </h3>
+    <div class="card card0 border-0">
+      <div class="row d-flex">
+        <div class="col-lg-6">
+          <div class="card1 pb-5">
+            <div class="row px-3 justify-content-center mt-4 mb-5 border-line">
+              <img th:src="@{|/images/logo-bg.png|}" class="image">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card2 card border-0 px-4 py-5">
+            <form action="/perform_login" method="post">
+              <div class="row px-3">
+                <label class="mb-1"><h6 class="mb-0 text-sm">Email:</h6></label>
+                <input class="mb-4" type="text" name="email" placeholder="Vui lòng nhập địa chỉ email...">
+              </div>
+              <div class="row px-3">
+                <label class="mb-1"><h6 class="mb-0 text-sm">Mật khẩu:</h6></label>
+                <input type="password" name="password" placeholder="Vui lòng nhập mật khẩu...">
+              </div>
+              <div class="row px-3 mb-4">
+                <!--<div class="custom-control custom-checkbox custom-control-inline">
+                  <input id="chk1" type="checkbox" name="chk" class="custom-control-input">
+                  <label for="chk1" class="custom-control-label text-sm">Nhớ mật khẩu?</label>
+                </div>-->
+                <a href="#" class="ml-auto mb-0 text-sm">Quên mật khẩu?</a>
+              </div>
+              <!-- loginpage.html -->
+              <!-- ... -->
+              <div th:if="${loginerr}" class="alert alert-danger" role="alert">
+                <p th:text="${loginerr}"></p>
+              </div>
+
+              <div class="row mb-3 px-3">
+                <button type="submit" class="btn btn-blue text-center">Đăng nhập</button>
+              </div>
+              <div class="row mb-4 px-3">
+                <small class="font-weight-bold">Bạn đã có tài khoản chưa? <a href="/register" class="text-danger ">Đăng ký</a></small>
+              </div>
+            </form>
+            <div class="row px-3 mb-4">
+              <div class="line"></div>
+              <small class="or text-center">Or</small>
+              <div class="line"></div>
+            </div>
+            <div class="row mb-4 px-3">
+              <h6 class="mb-0 mr-4 mt-2">Đăng nhập với</h6>
+              <div class="facebook text-center mr-3">
+                <a class="fa fa-github" th:href="@{/oauth2/authorization/github}"></a>
+              </div>
+              <div class="twitter text-center mr-3">
+                <a class="fa fa-google" th:href="@{/oauth2/authorization/google}"></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
