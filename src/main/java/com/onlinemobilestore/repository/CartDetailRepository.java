@@ -8,4 +8,5 @@ import org.springframework.stereotype.Repository;
 public interface CartDetailRepository extends JpaRepository<CartDetail,Integer> {
 
     CartDetail findByCartId(int id);
+    CartDetail findByProductId(Integer id);
 }
