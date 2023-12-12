@@ -1,15 +1,17 @@
 package com.onlinemobilestore.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
+@Data
 @Table(name = "cart_detail")
 public class CartDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name = "product_id")
@@ -18,9 +20,8 @@ public class CartDetail {
     private int quantity;
 
     @ManyToOne
-    @JoinColumn(name = "cart_id")
+    @JoinColumn(name = "cart_id") @JsonIgnore
     private Cart cart;
 
-    // getters and setters
 }
 
