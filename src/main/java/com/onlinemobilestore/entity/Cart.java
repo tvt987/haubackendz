@@ -24,7 +24,7 @@ public class Cart {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @OneToMany(mappedBy = "cart")@JsonIgnore
+    @OneToMany(mappedBy = "cart")
     private List<CartDetail> cartDetails;
 
 }
